@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iana Klementeva
+      🥰</title>
+
+    <script>
+      document.addEventListener("mousemove", function (e) {
+        let container = document.getElementById("container");
+        let heart = document.createElement("span");
+        let x = e.offsetX;
+        let y = e.offsetY;
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+
+        let size = Math.random() * 80;
+        heart.style.width = 20 + size + "px";
+        heart.style.height = 20 + size + "px";
+
+        let transformValue = Math.random() * 360;
+        heart.style.transform = "rotate(" + transformValue + "deg)";
+
+        container.appendChild(heart);
+
+        setTimeout(function () {
+          heart.remove();
+        }, 1000);
+      });
+    </script>
+
+    <style>
+      body {
+        background-image: linear-gradient(
+          to right top,
+          #1f0537,
+          #380c60,
+          #55108c,
+          #7413bb,
+          #9612eb
+        );
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+      .card {
+        position: relative;
+        width: 300px;
+        height: 425px;
+        border: 10px solid #9612eb;
+        margin: 60px auto 0 auto;
+        box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255),
+            rgba(255, 255, 255, 0.5)
+          ),
+          url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+
+        background-position: center;
+        /* Center the image */
+        background-repeat: no-repeat;
+        /* Do not repeat the image */
+        background-size: cover;
+        background-color: #e6f0e6;
+      }
+
+      .card .text-container {
+        width: 80%;
+        height: 80%;
+        margin: auto;
+      }
+
+      .strikethrough {
+        text-decoration: line-through;
+      }
+
+      .card .text-container #head {
+        font-family: "Nobile", sans-serif;
+        font-size: 1.5em;
+        margin: 60px auto 60px auto;
+      }
+
+      .card p {
+        font-size: 1.1em;
+        line-height: 1.4;
+        font-family: "Nobile";
+        color: #331717;
+        font-style: italic;
+        text-align: center;
+        margin: 30px auto 0px auto;
+      }
+
+      .card .front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: -10px 0px 0px -10px;
+        border: 10px solid #9612eb;
+        backface-visibility: hidden;
+        background-color: #9612eb;
+        /* background-image: url($cover-image);
+	 */
+        background-size: contain;
+        transform-style: preserve-3d;
+        transform-origin: 0% 50%;
+        transform: perspective(800px) rotateY(0deg);
+        transition: all 0.8s ease-in-out;
+      }
+
+      .card:hover .front {
+        transform: perspective(800px) rotateY(-170deg);
+        background-color: #41718d;
+      }
+
+      .card:hover .back {
+        transform: perspective(800px) rotateY(-170deg);
+        box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3),
+          inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+        background-color: #d2dcd2;
+      }
+
+      .card .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 10px solid #9612eb;
+        margin: -10px 0px 0px -10px;
+        backface-visibility: visible;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+        transform-style: preserve-3d;
+        transform-origin: 0% 50%;
+        transform: perspective(800px) rotateY(0deg);
+        transition: all 0.8s ease-in-out;
+        background-color: #e6f0e6;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+      }
+
+      .imgset {
+        position: relative;
+        z-index: 1;
+        margin-bottom: -215px;
+      }
+
+      .imgset img {
+        box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+        border-radius: 5px;
+      }
+
+      .bubble span {
+        position: absolute;
+        margin: 0 3px;
+        height: 50px;
+        width: 50px;
+        background-color: transparent;
+        border: 5px rgb(4, 255, 255);
+        border-radius: 20%;
+        box-shadow: 0 0 0 10px #4fc3dc44, 0 0 30px rgb(4, 255, 255),
+          0 0 70px rgb(4, 255, 255);
+        z-index: 100;
+
+        /* animation-duration: calc(120s/var(--i)); */
+      }
+
+      @keyframes mymove {
+        0% {
+          transform: translateY(0) scale(0) rotate(0);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(-60px) scale(1.2) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .bubble span:nth-child(1) {
+        top: 10%;
+        left: 40%;
+        animation: mymove 10s linear infinite;
+      }
+
+      .bubble span:nth-child(2) {
+        top: 60%;
+        left: 20%;
+        animation: mymove 8s linear infinite;
+      }
+
+      .bubble span:nth-child(3) {
+        top: 40%;
+        left: 40%;
+        animation: mymove 13s linear infinite;
+      }
+
+      .bubble span:nth-child(4) {
+        top: 90%;
+        left: 10%;
+        animation: mymove 7s linear infinite;
+      }
+
+      .bubble span:nth-child(5) {
+        top: 50%;
+        left: 60%;
+        animation: mymove 9s linear infinite;
+      }
+
+      .bubble span:nth-child(6) {
+        top: 90%;
+        left: 90%;
+        animation: mymove 13s linear infinite;
+      }
+
+      .bubble span:nth-child(7) {
+        top: 80%;
+        left: 70%;
+        animation: mymove 6s linear infinite;
+      }
+
+      .bubble span:nth-child(8) {
+        top: 40%;
+        left: 30%;
+        animation: mymove 8s linear infinite;
+      }
+
+      .bubble span:nth-child(9) {
+        top: 70%;
+        left: 50%;
+        animation: mymove 11s linear infinite;
+      }
+
+      .bubble span:nth-child(10) {
+        top: 60%;
+        left: 80%;
+        animation: mymove 10s linear infinite;
+      }
+
+      .bubble span:nth-child(11) {
+        top: 20%;
+        left: 70%;
+        animation: mymove 13s linear infinite;
+      }
+
+      .bubble span:nth-child(12) {
+        top: 30%;
+        left: 10%;
+        animation: mymove 7s linear infinite;
+      }
+
+      .bubble span:nth-child(13) {
+        top: 40%;
+        left: 90%;
+        animation: mymove 8s linear infinite;
+      }
+
+      .bubble span:nth-child(14) {
+        top: 10%;
+        left: 90%;
+        animation: mymove 9s linear infinite;
+      }
+
+      .bubble span:nth-child(15) {
+        top: 90%;
+        left: 32%;
+        animation: mymove 9s linear infinite;
+      }
+
+      .bubble span:nth-child(16) {
+        top: 99%;
+        left: 24%;
+        animation: mymove 9s linear infinite;
+      }
+
+      .bubble span:nth-child(17) {
+        top: 94%;
+        left: 10%;
+        animation: mymove 9s linear infinite;
+      }
+
+      .bubble span:nth-child(18) {
+        top: 91%;
+        left: 90%;
+        animation: mymove 9s linear infinite;
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+        background: url(background.png);
+        background-position: center;
+        background-size: cover;
+      }
+
+      span {
+        position: absolute;
+        filter: drop-shadow(0 0 1em rgba(0, 0, 0, 0.5));
+        pointer-events: none;
+        animation: animHeart 1s linear infinite;
+      }
+
+      @keyframes animHeart {
+        0%,
+        100% {
+          opacity: 0;
+        }
+
+        20%,
+        80% {
+          opacity: 1;
+        }
+      }
+
+      span::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url(heart.png);
+        background-size: cover;
+        animation: heart 1s linear infinite;
+      }
+
+      @keyframes heart {
+        0% {
+          transform: translate(0) rotate(0deg);
+        }
+
+        100% {
+          transform: translate(20em) rotate(360deg);
+        }
+      }
+
+      /* body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Consolas";
+} */
+
+      .image_container {
+        /* position: relative;
+  width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; */
+      }
+
+      .image_container .image_box {
+        position: relative;
+        width: 250px;
+        height: 350px;
+        margin: 20px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .image_container .image_box .image_imgBx {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        clip-path: circle(500px at center 100px);
+        transition: all 0.5s;
+        transition-delay: 0.5s;
+      }
+
+      .image_container .image_box:hover .image_imgBx {
+        clip-path: circle(80px at center 100px);
+        transition-delay: 0s;
+      }
+
+      .image_container .image_box:hover .image_imgBx img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image_container .image_box .image_content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 65%;
+        /* padding: 10px; */
+
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      .image_container .image_box .image_content h2 {
+        margin: 0;
+        padding: 0;
+      }
+
+      .image_container .image_box .image_content a {
+        text-decoration: none;
+        background: #000;
+        color: #fff;
+        padding: 10px;
+        display: inline-block;
+      }
+
+      .image_container .image_box .image_content h2,
+      .image_container .image_box .image_content p,
+      .image_container .image_box .image_content a {
+        opacity: 0;
+        transition: all 0.5s;
+        transform: translateY(20px);
+      }
+
+      .image_container .image_box:hover .image_content h2 {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.5s;
+      }
+
+      .image_container .image_box:hover .image_content p {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.7s;
+      }
+
+      .image_container .image_box:hover .image_content a {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.9s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <body>
+      <div class="container" id="container">
+        <div class="bubble">
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+          <span className="bubble-animation"></span>
+        </div>
+        <h1 style="display: flex; align-items: center; justify-content: center">
+          1
+        </h1>
+        <div class="card">
+          <div class="back"></div>
+          <div class="front">
+            <div class="imgset">
+              <img
+                width="100%"
+                src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png"
+              />
+            </div>
+          </div>
+          <div class="text-container">
+            <p id="head">Happy Birthday 🥰Iana Klementeva🥰
+              Princess</p>
+            <p>
+              Happy birthdaybirthday🎂🥳🥳! Sending you a birthday wish wrapped with all my delight. Cheers to you!🍻
+            </p>
+            <p>I’m overjoyed to celebrate your special day with you !</p>
+          </div>
+        </div>
+
+
+      </div>
+    </body>
+  </body>
+</html>
